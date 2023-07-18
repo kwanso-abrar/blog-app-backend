@@ -1,6 +1,6 @@
-import { Field, ObjectType } from '@nestjs/graphql';
 import { Base } from 'src/utils/baseEntity';
 import { Column, Entity } from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 @Entity('users')
@@ -15,11 +15,11 @@ export class User extends Base {
 
   @Field({ nullable: true })
   @Column({ name: 'username', nullable: true })
-  userName: string;
+  userName?: string;
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  avatar: string;
+  avatar?: string;
 
   @Field()
   @Column()
