@@ -9,7 +9,6 @@ export class User extends Base {
   @Column()
   email: string;
 
-  @Field()
   @Column()
   password: string;
 

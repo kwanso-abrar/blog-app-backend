@@ -18,6 +18,13 @@ import configuration from './config/configuration';
       driver: ApolloDriver,
       autoSchemaFile: true,
       playground: true,
+      formatError: (error: any) => {
+        const graphQLFormattedError = {
+          message: error.extensions?.exception?.response?.message || error.message,
+          code: error.extensions?.code || 500,
+        };
+        return graphQLFormattedError;
+      },
     }),
     UsersModule,
   ],

@@ -3,7 +3,7 @@ import { IsEmail, IsNotEmpty } from 'class-validator';
 
 @InputType()
 export class SignupUserInput {
-  @Field()
+  @Field(() => String)
   @IsEmail()
   email: string;
 
@@ -20,4 +20,15 @@ export class SignupUserInput {
   @Field()
   @IsNotEmpty()
   role: string;
+}
+
+@InputType()
+export class SigninUserInput {
+  @Field()
+  @IsEmail()
+  email: string;
+
+  @Field()
+  @IsNotEmpty()
+  password: string;
 }

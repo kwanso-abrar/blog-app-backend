@@ -1,9 +1,4 @@
-import {
-  Table,
-  QueryRunner,
-  TableForeignKey,
-  MigrationInterface,
-} from 'typeorm';
+import { Table, QueryRunner, TableForeignKey, MigrationInterface } from 'typeorm';
 
 export class AddPostTable1689570931454 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {

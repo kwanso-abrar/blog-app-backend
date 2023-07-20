@@ -1,25 +1,17 @@
-import { ObjectType, Field } from '@nestjs/graphql';
-import { PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
+import { BaseEntity, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @ObjectType()
 export class Base extends BaseEntity {
-  @Field()
   @PrimaryGeneratedColumn('uuid')
+  @Field(() => String)
   id: string;
 
-  @Field({ name: 'createdAt' })
-  @Column({
-    default: () => 'CURRENT_TIMESTAMPZ',
-    name: 'created_at',
-    type: 'timestamptz',
-  })
+  @CreateDateColumn({ type: 'timestamptz', name: 'created_at' })
+  @Field(() => Date)
   createdAt: Date;
 
-  @Field({ name: 'updatedAt' })
-  @Column({
-    default: () => 'CURRENT_TIMESTAMPZ',
-    type: 'timestamptz',
-    name: 'updated_at',
-  })
+  @UpdateDateColumn({ type: 'timestamptz', name: 'updated_at' })
+  @Field(() => Date)
   updatedAt: Date;
 }
