@@ -22,7 +22,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       formatError: (error: any) => {
         const graphQLFormattedError = {
           message: error.extensions?.exception?.response?.message || error.message,
-          code: error.extensions?.code || 500,
+          status: error.extensions?.code || 500,
         };
         return graphQLFormattedError;
       },

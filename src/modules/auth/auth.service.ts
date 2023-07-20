@@ -18,6 +18,6 @@ export class AuthService {
     if (!isPasswordMatched) throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
 
     const jwtPayload = { id: user.id };
-    return { user, accessToken: await this.jwtService.signAsync(jwtPayload) };
+    return { user, accessToken: await this.jwtService.signAsync(jwtPayload), status: 200, message: 'success' };
   }
 }

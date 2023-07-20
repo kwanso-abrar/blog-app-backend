@@ -3,8 +3,8 @@ import { AuthGuard } from 'src/guards/auth.guard';
 import { UseGuards } from '@nestjs/common';
 import { CurrentUser } from 'src/decorators/currentUser.decorator';
 import { UsersService } from './users.service';
-import { SignupUserInput } from './users.dto';
 import { Resolver, Mutation, Args, Query } from '@nestjs/graphql';
+import { SignupUserInput, SignupUserOutput } from './users.dto';
 
 @Resolver()
 export class UsersResolver {
@@ -17,7 +17,7 @@ export class UsersResolver {
     return 'Hello World!';
   }
 
-  @Mutation(() => User)
+  @Mutation(() => SignupUserOutput)
   async signupUser(@Args('input') input: SignupUserInput) {
     return await this.usersService.signup(input);
   }
