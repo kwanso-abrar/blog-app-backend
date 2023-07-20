@@ -14,7 +14,7 @@ export class AuthService {
     const user = await this.usersService.findUserByEmail(email);
     if (!user) throw new HttpException('User not found', HttpStatus.BAD_REQUEST);
 
-    const isPasswordMatched = comparePassword(password, user.password);
+    const isPasswordMatched = await comparePassword(password, user.password);
     if (!isPasswordMatched) throw new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
 
     const jwtPayload = { id: user.id };
