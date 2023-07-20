@@ -9,6 +9,10 @@ async function bootstrap() {
   const PORT = configService.get<number>('port');
 
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(PORT);
+
+  await app
+    .listen(PORT)
+    .then(() => console.log(`App is running on port ${PORT}`))
+    .catch((error: Error) => console.error(error));
 }
 bootstrap();

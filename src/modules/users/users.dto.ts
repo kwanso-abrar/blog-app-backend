@@ -21,14 +21,3 @@ export class SignupUserInput {
   @IsNotEmpty()
   role: string;
 }
-
-@InputType()
-export class SigninUserInput {
-  @Field()
-  @IsEmail()
-  email: string;
-
-  @Field()
-  @IsNotEmpty()
-  password: string;
-}

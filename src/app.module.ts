@@ -1,11 +1,12 @@
+import configuration from './config/configuration';
 import { Module } from '@nestjs/common';
+import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './database.config';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import configuration from './config/configuration';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import configuration from './config/configuration';
         return graphQLFormattedError;
       },
     }),
+    AuthModule,
     UsersModule,
   ],
 })
