@@ -29,7 +29,7 @@ export class PostsService {
 
     const totalPosts = await this.postRepository.count();
     if (totalPosts === 0) return { posts: [], message: 'No post found', status: 400, metaData: { count: 0, total: 0 } };
-    if (take === 0) return { posts: [], message: 'No post found', status: 400, metaData: { count: 0, total: totalPosts } };
+    if (take === 0) return { posts: [], message: 'success', status: 200, metaData: { count: 0, total: totalPosts } };
 
     const posts = await this.postRepository.find({ take, skip });
     return { posts, message: 'success', status: 200, metaData: { total: totalPosts, count: posts.length } };
