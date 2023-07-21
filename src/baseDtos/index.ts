@@ -1,10 +1,28 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, InputType, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class ResponseDto {
-  @Field(() => Number, { nullable: true })
-  status?: number;
+  @Field()
+  status: number;
 
-  @Field(() => String, { nullable: true })
-  message?: string;
+  @Field()
+  message: string;
+}
+
+@InputType()
+export class PaginationInput {
+  @Field()
+  take: number;
+
+  @Field()
+  skip: number;
+}
+
+@ObjectType()
+export class PaginationOutput {
+  @Field()
+  total: number;
+
+  @Field()
+  count: number;
 }

@@ -1,7 +1,7 @@
 import { Post } from '../entities/posts.entity';
 import { IsNotEmpty } from 'class-validator';
-import { ResponseDto } from '../../../baseDtos';
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
+import { PaginationOutput, ResponseDto } from '../../../baseDtos';
 
 @InputType()
 export class CreatePostInput {
@@ -29,7 +29,13 @@ export class CreatePostOutput extends ResponseDto {
 }
 
 @ObjectType()
-export class GetPostByIdOutput extends ResponseDto {
-  @Field(() => Post)
-  post: Post;
+export class GetPostByIdOutput extends CreatePostOutput {}
+
+@ObjectType()
+export class GetAllPostsOutput extends ResponseDto {
+  @Field(() => [Post])
+  posts: Post[];
+
+  @Field(() => PaginationOutput)
+  metaData: PaginationOutput;
 }
