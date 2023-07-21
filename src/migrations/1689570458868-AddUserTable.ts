@@ -22,7 +22,7 @@ export class AddUserTable1689570458868 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'username',
+            name: 'userName',
             type: 'varchar',
             isNullable: true,
           },
@@ -36,12 +36,12 @@ export class AddUserTable1689570458868 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'created_at',
+            name: 'createdAt',
             type: 'timestamptz',
             default: 'now()',
           },
           {
-            name: 'updated_at',
+            name: 'updatedAt',
             type: 'timestamptz',
             default: 'now()',
           },

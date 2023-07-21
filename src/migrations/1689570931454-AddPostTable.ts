@@ -31,20 +31,20 @@ export class AddPostTable1689570931454 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'minutes_to_read',
+            name: 'minutesToRead',
             type: 'integer',
           },
           {
-            name: 'user_id',
+            name: 'userId',
             type: 'uuid',
           },
           {
-            name: 'created_at',
+            name: 'createdAt',
             type: 'timestamptz',
             default: 'now()',
           },
           {
-            name: 'updated_at',
+            name: 'updatedAt',
             type: 'timestamptz',
             default: 'now()',
           },
@@ -55,7 +55,7 @@ export class AddPostTable1689570931454 implements MigrationInterface {
     await queryRunner.createForeignKey(
       'posts',
       new TableForeignKey({
-        columnNames: ['user_id'],
+        columnNames: ['userId'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
         onUpdate: 'CASCADE',

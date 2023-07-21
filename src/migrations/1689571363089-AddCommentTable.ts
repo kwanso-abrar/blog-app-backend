@@ -18,24 +18,24 @@ export class AddCommentTable1689571363089 implements MigrationInterface {
             type: 'text',
           },
           {
-            name: 'user_id',
+            name: 'userId',
             type: 'uuid',
           },
           {
-            name: 'post_id',
+            name: 'postId',
             type: 'uuid',
           },
           {
-            name: 'parent_id',
+            name: 'parentId',
             type: 'uuid',
           },
           {
-            name: 'created_at',
+            name: 'createdAt',
             type: 'timestamptz',
             default: 'now()',
           },
           {
-            name: 'updated_at',
+            name: 'updatedAt',
             type: 'timestamptz',
             default: 'now()',
           },
@@ -46,7 +46,7 @@ export class AddCommentTable1689571363089 implements MigrationInterface {
     await queryRunner.createForeignKey(
       'comments',
       new TableForeignKey({
-        columnNames: ['user_id'],
+        columnNames: ['userId'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
         onUpdate: 'CASCADE',
@@ -57,7 +57,7 @@ export class AddCommentTable1689571363089 implements MigrationInterface {
     await queryRunner.createForeignKey(
       'comments',
       new TableForeignKey({
-        columnNames: ['post_id'],
+        columnNames: ['postId'],
         referencedColumnNames: ['id'],
         referencedTableName: 'posts',
         onUpdate: 'CASCADE',
@@ -68,7 +68,7 @@ export class AddCommentTable1689571363089 implements MigrationInterface {
     await queryRunner.createForeignKey(
       'comments',
       new TableForeignKey({
-        columnNames: ['parent_id'],
+        columnNames: ['parentId'],
         referencedColumnNames: ['id'],
         referencedTableName: 'comments',
         onUpdate: 'CASCADE',

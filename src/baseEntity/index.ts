@@ -7,11 +7,11 @@ export class Base extends BaseEntity {
   @Field(() => String)
   id: string;
 
-  @CreateDateColumn({ type: 'timestamptz', name: 'created_at' })
+  @CreateDateColumn({ type: 'timestamptz' })
   @Field(() => Date)
   createdAt: Date;
 
-  @UpdateDateColumn({ type: 'timestamptz', name: 'updated_at' })
+  @UpdateDateColumn({ type: 'timestamptz' })
   @Field(() => Date)
   updatedAt: Date;
 }
