@@ -1,6 +1,6 @@
-import { Post } from './posts.entity';
+import { Post } from '../entities/posts.entity';
 import { IsNotEmpty } from 'class-validator';
-import { ResponseDto } from 'src/commonDtos';
+import { ResponseDto } from 'src/baseDtos';
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
 
 @InputType()

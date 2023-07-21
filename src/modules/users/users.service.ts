@@ -1,7 +1,7 @@
-import { User } from './users.entity';
+import { User } from './entities/users.entity';
 import { Repository } from 'typeorm';
 import { hashPassword } from 'src/utils/app.utils';
-import { SignupUserInput, SignupUserOutput } from './users.dto';
+import { SignupUserInput, SignupUserOutput } from './dtos/users.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 

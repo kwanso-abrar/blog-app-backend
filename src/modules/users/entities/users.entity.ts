@@ -1,5 +1,5 @@
-import { Base } from 'src/baseEntity';
-import { Post } from '../posts/posts.entity';
+import { Base } from 'src/baseEntities';
+import { Post } from '../../posts/entities/posts.entity';
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity, OneToMany } from 'typeorm';
 

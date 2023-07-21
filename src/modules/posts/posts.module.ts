@@ -1,4 +1,4 @@
-import { Post } from './posts.entity';
+import { Post } from './entities/posts.entity';
 import { Module } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { PostsResolver } from './posts.resolver';

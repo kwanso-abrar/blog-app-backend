@@ -1,7 +1,7 @@
-import { User } from 'src/modules/users/users.entity';
+import { User } from 'src/modules/users/entities/users.entity';
 import { IsEmail, IsNotEmpty } from 'class-validator';
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
-import { ResponseDto } from 'src/commonDtos';
+import { ResponseDto } from 'src/baseDtos';
 
 @InputType()
 export class SigninUserInput {

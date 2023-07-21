@@ -1,8 +1,8 @@
-import { Post } from './posts.entity';
-import { User } from '../users/users.entity';
+import { Post } from './entities/posts.entity';
+import { User } from '../users/entities/users.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreatePostInput, CreatePostOutput } from './posts.dto';
+import { CreatePostInput, CreatePostOutput } from './dtos/posts.dto';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 @Injectable()
