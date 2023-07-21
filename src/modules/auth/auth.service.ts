@@ -1,6 +1,6 @@
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
-import { comparePassword } from 'src/utils/app.utils';
+import { comparePassword } from '../../utils/app.utils';
 import { SigninUserInput, SigninUserOutput } from './dtos/auth.dto';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 

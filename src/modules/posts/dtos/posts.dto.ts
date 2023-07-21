@@ -1,6 +1,6 @@
 import { Post } from '../entities/posts.entity';
 import { IsNotEmpty } from 'class-validator';
-import { ResponseDto } from 'src/baseDtos';
+import { ResponseDto } from '../../../baseDtos';
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
 
 @InputType()
@@ -24,6 +24,12 @@ export class CreatePostInput {
 
 @ObjectType()
 export class CreatePostOutput extends ResponseDto {
+  @Field(() => Post)
+  post: Post;
+}
+
+@ObjectType()
+export class GetPostByIdOutput extends ResponseDto {
   @Field(() => Post)
   post: Post;
 }
