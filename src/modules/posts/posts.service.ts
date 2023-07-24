@@ -11,27 +11,39 @@ export class PostsService {
   constructor(@InjectRepository(Post) private postRepository: Repository<Post>) {}
 
   async createPost(input: CreatePostInput, user: User): Promise<CreatePostOutput> {
-    const post = await this.postRepository.save({ ...input, user });
-    if (!post) throw new HttpException('Something went wrong', HttpStatus.INTERNAL_SERVER_ERROR);
+    try {
+      const post = await this.postRepository.save({ ...input, user });
+      if (!post) throw new HttpException('Something went wrong', HttpStatus.INTERNAL_SERVER_ERROR);
 
-    return { post, status: 200, message: 'success' };
+      return { post, status: 200, message: 'success' };
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
   async getPostById(id: string): Promise<GetPostByIdOutput> {
-    const post = await this.postRepository.findOne({ where: { id } });
-    if (!post) throw new HttpException('Something went wrong', HttpStatus.INTERNAL_SERVER_ERROR);
+    try {
+      const post = await this.postRepository.findOne({ where: { id } });
+      if (!post) throw new HttpException('Something went wrong', HttpStatus.INTERNAL_SERVER_ERROR);
 
-    return { post, status: 200, message: 'success' };
+      return { post, status: 200, message: 'success' };
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
   async getAllPosts(paginationInput: PaginationInput): Promise<GetAllPostsOutput> {
-    const { take, skip } = paginationInput;
+    try {
+      const { take, skip } = paginationInput;
 
-    const totalPosts = await this.postRepository.count();
-    if (totalPosts === 0) return { posts: [], message: 'No post found', status: 400, metaData: { count: 0, total: 0 } };
-    if (take === 0) return { posts: [], message: 'success', status: 200, metaData: { count: 0, total: totalPosts } };
+      const totalPosts = await this.postRepository.count();
+      if (totalPosts === 0) return { posts: [], message: 'No post found', status: 400, metaData: { count: 0, total: 0 } };
+      if (take === 0) return { posts: [], message: 'success', status: 200, metaData: { count: 0, total: totalPosts } };
 
-    const posts = await this.postRepository.find({ take, skip });
-    return { posts, message: 'success', status: 200, metaData: { total: totalPosts, count: posts.length } };
+      const posts = await this.postRepository.find({ take, skip });
+      return { posts, message: 'success', status: 200, metaData: { total: totalPosts, count: posts.length } };
+    } catch (error) {
+      throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }
