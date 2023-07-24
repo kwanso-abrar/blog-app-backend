@@ -1,7 +1,8 @@
 import { Base } from '../../../baseEntities';
 import { User } from '../../users/entities/users.entity';
+import { Comment } from '../../comments/entities/comments.entity';
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 
 @ObjectType()
 @Entity('posts')
@@ -28,4 +29,7 @@ export class Post extends Base {
 
   @ManyToOne(() => User, (user) => user.posts)
   user: User;
+
+  @OneToMany(() => Comment, (comment) => comment.post)
+  comments: Comment[];
 }

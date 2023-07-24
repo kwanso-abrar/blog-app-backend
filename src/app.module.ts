@@ -6,6 +6,7 @@ import { UsersModule } from './modules/users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CommentsModule } from './modules/comments/comments.module';
 import { TypeOrmConfigService } from './database.config';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
@@ -31,6 +32,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
     AuthModule,
     PostsModule,
     UsersModule,
+    CommentsModule,
   ],
 })
 export class AppModule {}

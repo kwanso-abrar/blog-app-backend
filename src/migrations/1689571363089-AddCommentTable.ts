@@ -28,6 +28,7 @@ export class AddCommentTable1689571363089 implements MigrationInterface {
           {
             name: 'parentId',
             type: 'uuid',
+            isNullable: true,
           },
           {
             name: 'createdAt',
